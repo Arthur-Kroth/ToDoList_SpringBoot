@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.to_do_list.entity.ToDo;
 import com.to_do_list.service.ToDoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/todos")
 public class ToDoController {
@@ -24,7 +26,7 @@ public class ToDoController {
     }
 
     @PostMapping
-    List<ToDo> create(@RequestBody ToDo toDo) {
+    List<ToDo> create(@RequestBody @Valid ToDo toDo) {
         return toDoService.create(toDo);
     }
 
