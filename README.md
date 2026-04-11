@@ -2,9 +2,8 @@
   TODO List
 </h1>
 
-Uma API REST completa para organização e gerenciamento de tarefas, permitindo criar, listar, atualizar e remover atividades de forma simples, eficiente e escalável. Desenvolvida com boas práticas de arquitetura e padrões modernos, a aplicação facilita o controle de tarefas no dia a dia e pode ser facilmente integrada a diferentes interfaces frontend.
-
-## Tecnologias
+A complete REST API for organizing and managing tasks, allowing you to create, list, update, and remove activities in a simple, efficient, and scalable way. Developed with best architectural practices and modern standards, the application facilitates daily task management and can be easily integrated with different frontend interfaces.
+## Technologies
  
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
@@ -12,82 +11,82 @@ Uma API REST completa para organização e gerenciamento de tarefas, permitindo 
 - [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
 - [Mysql](https://dev.mysql.com/downloads/)
 
-## Práticas adotadas
+## Practices adopted
 
 - SOLID, DRY, YAGNI, KISS
 - API REST
-- Consultas com Spring Data JPA
-- Injeção de Dependências
-- Tratamento de respostas de erro
-- Geração automática do Swagger com a OpenAPI 3
+- Queries with Spring Data JPA
+- Dependency Injection
+- Error Handling
+- Automatic Swagger Generation with OpenAPI 3
 
-## Como Executar
+## How to Execute
 
-- Clonar repositório git
-- Construir o projeto:
+- Clone the git repository
+- Build the project:
 ```
 $ ./mvnw clean package
 ```
-- Executar a aplicação:
+- Run the application:
 ```
 $ java -jar target/todolist-0.0.1-SNAPSHOT.jar
 ```
 
-A API poderá ser acessada em [localhost:8080](http://localhost:8080).
-O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+The API can be accessed at [localhost:8080](http://localhost:8081).
+Swagger can be viewed at [localhost:8080/swagger-ui.html](http://localhost:8081/swagger-ui.html)
 
 ## API Endpoints
 
-Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [httpie](https://httpie.io):
+To make the HTTP requests below, the following tool was used. [httpie](https://httpie.io):
 
-- Criar Tarefa 
+- Create Task
 ```
-$ http POST :8080/todos nome="Todo 1" descricao="Desc Todo 1" prioridade=1
+$ http POST :8081/todos name="ToDo 1" description="Description Todo 1" completed=false priority=1
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "completed": false,
+    "description": "Description ToDo 1",
     "id": 1,
-    "nome": "Todo 1",
-    "prioridade": 1,
-    "realizado": false
+    "name": "ToDo 1",
+    "priority": 1
   }
 ]
 ```
 
-- Listar Tarefas
+- Read Tasks
 ```
-$ http GET :8080/todos
+$ http GET :8081/todos
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "completed": false,
+    "description": "Description ToDo 1",
     "id": 1,
-    "nome": "Todo 1",
-    "prioridade": 1,
-    "realizado": false
+    "name": "ToDo 1",
+    "priority": 1
   }
 ]
 ```
 
-- Atualizar Tarefa
+- Update Tasks
 ```
-$ http PUT :8080/todos/1 nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
+$ http PUT :8081/todos/1 name="ToDo 1" description="Big description ToDo 1" completed=true priority=1
 
 [
   {
-    "descricao": "Desc Todo 1 Up",
+    "completed": true,
+    "description": "Big description ToDo 1",
     "id": 1,
-    "nome": "Todo 1 Up",
-    "prioridade": 2,
-    "realizado": false
+    "name": "ToDo 1",
+    "priority": 1
   }
 ]
 ```
 
-- Remover Tarefa
+- Delete Tasks
 ```
-http DELETE :8080/todos/1
+http DELETE :8081/todos/1
 
 [ ]
 ```
