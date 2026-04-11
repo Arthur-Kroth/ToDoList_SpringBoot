@@ -32,8 +32,8 @@ $ ./mvnw clean package
 $ java -jar target/todolist-0.0.1-SNAPSHOT.jar
 ```
 
-The API can be accessed at [localhost:8080](http://localhost:8081).
-Swagger can be viewed at [localhost:8080/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+The API can be accessed at [localhost:8081](http://localhost:8081).
+Swagger can be viewed at [localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
 
 ## API Endpoints
 
